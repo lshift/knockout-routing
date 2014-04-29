@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Knockout routing example</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <script data-main="scripts/main" src="scripts/lib/require.js"></script>
+</head>
+
+<body>
+  <div id="header">
+    <h1><a href="#">Knockout Routing Example</a></h1>
+    <nav role="navigation">
+      <a href="#">Home</a>
+      <a href="#foo">Foo</a>
+      <a href="#bar">Bar</a>
+    </nav>
+  </div>
+
+  <div id="content" data-bind="template: { name: router.currentPage().view,
+                                           data: router.currentPage().model }"></div>
+
+  <!-- Templates -->
+
+  <script id="home-template" type="text/html">
+    <h2>Home</h2>
+    <p>This is the home page.</p>
+  </script>
+
+  <script id="foo-template" type="text/html">
+    <h2>Foo</h2>
+    <p>This is the foo page.</p>
+  </script>
+
+  <script id="bar-template" type="text/html">
+    <h2>Bar</h2>
+    <p>This is the bar page. Have a drink.</p>
+  </script>
+
+  <script id="404-template" type="text/html">
+    <h2>404 - Page not found</h2>
+  </script>
+
+</body>
+</html>
