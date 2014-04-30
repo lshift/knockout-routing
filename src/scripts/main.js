@@ -34,10 +34,9 @@ define(['knockout', 'router'], function(ko, Router) {
     return new Router.Page('Will it work?', 'simple-template', { error: ko.observable('Deliberate error!') });
   }
 
-  // This is the KO ViewModel for the whole page.
-  var topLevelModel = {
-    router: new Router(urlMapping)
-  };
+  // This is the KO ViewModel for the whole page, which contains our router, which
+  // in turn keeps track of the current page.
+  var topLevelModel = { router: new Router(urlMapping) };
 
   // Need to explicitly bind to 'html' node if we want setting the page title to work.
   ko.applyBindings(topLevelModel, $('html').get(0));
