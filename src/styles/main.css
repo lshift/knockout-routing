@@ -1,5 +1,29 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: sans-serif;
+}
+
 #header {
   width: 100%;
-  height: 80px;
-  background-color: #dfd;
+  background-color: #36f;
+  padding: 10px 20px;
+}
+
+#header h1 {
+  margin: 0px 0px 20px 0px;
+}
+
+#header a {
+  color: white;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+#content {
+  padding: 20px;
+}
+
+#content h2 {
+  margin-top: 0px;
 }
