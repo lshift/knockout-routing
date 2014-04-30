@@ -14,6 +14,7 @@
       <a href="#simple">Simple</a>
       <a href="#params/foo/1234">Params</a>
       <a href="#fail">Fail</a>
+      <a href="#slow">Slow</a>
     </nav>
   </div>
 
@@ -21,7 +22,7 @@
   <div id="content" data-bind="template: { name: router.currentPage().view,
                                            data: router.currentPage().model }"></div>
 
-  <!-- Templates -->
+  <!-- Templates  for our pages-->
   <script id="home-template" type="text/html">
     <h2>Home</h2>
     <p>This is the home page. Try the links in the header and watch the URL.</p>
@@ -33,17 +34,23 @@
     <p>This is a simple page with a simple URL.</p>
   </script>
 
-  <script id="fail-template" type="text/html">
-    <h2>Fail</h2>
-    <p>You will never see this, because the router shows the error page instead.</p>
-  </script>
-
   <script id="params-template" type="text/html">
     <h2>Params</h2>
     <p>The URL contains <strong><span data-bind="text: param1"></span></strong> and <strong><span data-bind="text: param2"></span></strong></p>
     <p>Try changing the values in the URL (second one must be numeric to match the routing regex).</p>
   </script>
 
+  <script id="fail-template" type="text/html">
+    <h2>Fail</h2>
+    <p>You will never see this, because the router shows the error page instead.</p>
+  </script>
+
+  <script id="slow-template" type="text/html">
+    <h2>Slow</h2>
+    <p>This page only shows up after it has loaded, which takes a couple of seconds.</p>
+  </script>
+
+  <!-- Templates used directly by the Router -->
   <script id="404-template" type="text/html">
     <h2>404 - Page not found</h2>
   </script>
@@ -51,6 +58,10 @@
   <script id="error-template" type="text/html">
     <h2>Error</h2>
     <p data-bind="text: error"></p>
+  </script>
+
+  <script id="loading-template" type="text/html">
+    <h2>Loading...</h2>
   </script>
 
   <!-- Kick off our JS -->

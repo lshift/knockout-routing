@@ -15,6 +15,7 @@ define(['knockout', 'router'], function(ko, Router) {
     home:   { match: /^$/,                    page: homePage },
     simple: { match: /^simple$/,              page: simplePage },
     params: { match: /^params\/(.+)\/(\d+)$/, page: paramsPage },
+    slow:   { match: /^slow$/,                page: slowPage },
     fail:   { match: /^fail$/,                page: failPage }
   }
 
@@ -28,6 +29,14 @@ define(['knockout', 'router'], function(ko, Router) {
 
   function paramsPage(param1, param2) {
     return new Router.Page('Params', 'params-template', { param1: param1, param2: param2 });
+  }
+
+  function slowPage() {
+    // Fake a loading process, so real page shows after 2 seconds.
+    // Router will pick up the 'loading' observable by convention.
+    var slowModel = { loading: ko.observable(true) };
+    window.setTimeout(function() { slowModel.loading(false) }, 2000);
+    return new Router.Page('Slow loading', 'slow-template', slowModel);
   }
 
   function failPage() {
