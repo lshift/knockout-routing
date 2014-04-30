@@ -34,9 +34,8 @@ define(['knockout', 'jquery'],
         var mapping = self.urlMapping[key];
         var matches = mapping.match.exec(path);
         if (matches) {
-          // Pass the last of the matches from the regex, so if there was a
-          // match group we pass that, otherwise the whole match.
-          return mapping.page(matches[matches.length - 1]);
+          // Pass the group matches from the regex.
+          return mapping.page.apply(this, matches.slice(1));
         }
       }
       return new Router.Page('404-template', {});
@@ -46,8 +45,10 @@ define(['knockout', 'jquery'],
     $(window).trigger("hashchange");
   }
 
-  // The view and model for a 'page' that can be shown.
-  Router.Page = function(view, model) {
+  // A 'page' that can be shown, encompassing the view (string identifying a template),
+  // model (a KO ViewModel) and title.
+  Router.Page = function(title, view, model) {
+    this.title = ko.observable(title);
     this.view = ko.computed( function() {
       // If model has an error or loading property, respect it.
       if (model.error && model.error()) return 'error-template';

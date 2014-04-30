@@ -12,21 +12,21 @@ define(['knockout', 'router'], function(ko, Router) {
 
 	// More specific matches should come first.
   var urlMapping = {
-    home: { match: /^$/,       page: homePage },
-    foo:  { match: /^foo$/,    page: fooPage },
-    bar:  { match: /^bar$/,    page: barPage },
+    home:    { match: /^$/,                    page: homePage },
+    simple:  { match: /^simple$/,              page: simplePage },
+    params:  { match: /^params\/(.+)\/(\d+)$/, page: paramsPage },
   }
 
   function homePage() {
-    return new Router.Page('home-template', {});
+    return new Router.Page('Home', 'home-template', {});
   }
 
-  function fooPage() {
-    return new Router.Page('foo-template', {});
+  function simplePage() {
+    return new Router.Page('Simple', 'simple-template', {});
   }
 
-  function barPage() {
-    return new Router.Page('bar-template', {});
+  function paramsPage(param1, param2) {
+    return new Router.Page('Params', 'params-template', { param1: param1, param2: param2 });
   }
 
   // This is the KO ViewModel for the whole page.
