@@ -38,7 +38,7 @@ define(['knockout', 'jquery'],
           return mapping.page.apply(this, matches.slice(1));
         }
       }
-      return new Router.Page('404-template', {});
+      return new Router.Page('404 - Not Found', '404-template', {});
     }
 
     // Manually trigger initial load of the relevant start page.
