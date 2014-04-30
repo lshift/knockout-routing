@@ -1,5 +1,4 @@
-define(['knockout', 'jquery'],
-  function(ko, $) {
+define(['knockout', 'jquery'], function(ko, $) {
 
   // Top-level KO ViewModel that detects URL changes and shows the relevant page.
   function Router(urlMapping, filter) {

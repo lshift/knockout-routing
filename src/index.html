@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"> 
-  <title data-bind="text: router.currentPage().title"></title>
+  <title data-bind="text: router.currentPage().title">Knockout Routing Example</title>
   <link rel="stylesheet" href="styles/main.css">
 </head>
 
@@ -30,7 +30,7 @@
   </script>
 
   <script id="simple-template" type="text/html">
-    <h2>Foo</h2>
+    <h2>Simple</h2>
     <p>This is a simple page with a simple URL.</p>
   </script>
 
@@ -48,6 +48,14 @@
   <script id="slow-template" type="text/html">
     <h2>Slow</h2>
     <p>This page only shows up after it has loaded, which takes a couple of seconds.</p>
+  </script>
+
+  <script id="random-template" type="text/html">
+    <h2>Random filter attack!</h2>
+    <p>The Router has a filter mechanism that provides the chance to intercept any request,
+       e.g. to enforce authentication.</p>
+    <p>In this case our filter rolls a dice and intercepts randomly to demonstrate the mechanism. Refresh the
+       page and you will probably get the one you really requested.</p>
   </script>
 
   <!-- Templates used directly by the Router -->
