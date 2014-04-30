@@ -8,6 +8,7 @@ A demonstration of how a very simple hash-based router can provide quite a lot o
  - Regexes for URL matching
  - Extract parts from URL simply by declaring groups in the Regex
  - Filter all requests to intercept as necessary - e.g. for auth
+ - Links can be just plain `<a href="#foo">Foo</a>` with no JS required (but no support for bidirectional routing)
  - 404 page where no match found
  - Common error page shown when current page's error property is set
  - Common loading page shown when current page's loading property is set.
