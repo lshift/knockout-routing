@@ -31,7 +31,7 @@ define(['knockout', 'jquery'], function(ko, $) {
     function pageFromMapping(path) {
       for (key in self.urlMapping) {
         var mapping = self.urlMapping[key];
-        var matches = mapping.match.exec(path);
+        var matches = mapping.match.exec(decodeURIComponent(path));
         if (matches) {
           // Pass the group matches from the regex.
           return mapping.page.apply(this, matches.slice(1));
